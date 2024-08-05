@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;  /* change list derection */
+    min-height: 100vh;  
+    margin-top: 40px;
+}
+
+.content {
+    display: flex;
+    flex: 1;  
+}
+
+.leftSide {
+    flex: 1;
+    background-color: #4a7c59;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.leftSide h1 {
+    font-size: 60px;  
+    color: white;  
+    margin: 0; 
+    padding-bottom: 10px; 
+}
+
+.rightSide {
+    flex: 1;
+    background: #4a7c59; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 50px;
+}
+
+.mapContainer {
+    width: 100%;
+    height: 400px; 
+    position: relative;
+  }

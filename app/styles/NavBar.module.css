@@ -1,0 +1,23 @@
+.menu {
+    background-color: #4a7c59;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.menuItem {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+.menuItem:hover {
+    background-image: linear-gradient(to right, #388E3C, #7CB342);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}

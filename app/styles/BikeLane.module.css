@@ -1,0 +1,76 @@
+.container {
+    color:#e9e7c1;
+    position: relative;
+    height: 100%;
+    background-color: #4a7c59;
+    margin-top: 50px;
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #4a7c59;
+  }
+  .main {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .title {
+    color: #f8f8f8;
+    font-size: 1em;
+    margin: 0;
+  }
+
+  .header {
+    background: #1e6837;
+    color: white;
+    padding: 10px 20px;
+    margin: 30px;
+    width: fit-content;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  }
+
+  .header:hover {
+    background: #0a3a1a;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  
+  .header a {
+    color: #f8f8f8; 
+    text-decoration: none; 
+    padding: 5px 10px;
+    transition: color 0.3s;
+  }
+  
+  .header a:hover, .header a:focus {
+    color: #ffffff;
+  }
+  
+  .mapContainer {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 300px;
+  }
+  
+  .routeDetails {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto; 
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+  
+
+  
+
+  
