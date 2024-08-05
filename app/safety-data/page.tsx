@@ -54,7 +54,7 @@ export default function SafetyData() {
           initialViewState={{
             latitude: -37.8136,
             longitude: 144.9631,
-            zoom: 1
+            zoom: 12
           }}
           mapStyle="mapbox://styles/mapbox/dark-v9"
           mapboxAccessToken={MAPBOX_TOKEN}
@@ -66,7 +66,7 @@ export default function SafetyData() {
           <Source
             id="earthquakes"
             type="geojson"
-            data="https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
+            data="https://fit5120-onboarding.s3.ap-southeast-2.amazonaws.com/transformed_geojson_file.geojson"
             cluster={true}
             clusterMaxZoom={14}
             clusterRadius={50}
