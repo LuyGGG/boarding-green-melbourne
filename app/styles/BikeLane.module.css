@@ -3,7 +3,7 @@
     position: relative;
     height: 100%;
     background-color: #4a7c59;
-    margin-top: 100px;
+    margin-top: 70px;
   }
 
   .layout {
@@ -11,6 +11,7 @@
     flex-direction: column;
     min-height: 100vh;
     background-color: #4a7c59;
+    padding: 10px;
   }
   .main {
     flex: 1;
