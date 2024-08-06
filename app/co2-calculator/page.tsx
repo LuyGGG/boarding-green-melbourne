@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/HomePage.module.css'; 
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const CO2Calculator = () => {
   return (

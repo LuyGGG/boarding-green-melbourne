@@ -11,6 +11,7 @@ import type { GeoJSONSource } from 'react-map-gl';
 import type { Feature } from 'geojson';
 import styles from '../styles/SafetyData.module.css';
 import Head from 'next/head';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || ''; 

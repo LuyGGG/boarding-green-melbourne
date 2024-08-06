@@ -1,60 +1,77 @@
-'use client'
-
+'use client';
 import React, { useEffect, useRef } from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import mapboxgl from 'mapbox-gl';
+import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css';
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from '../styles/BikeLane.module.css';
 
-import mapboxgl from 'mapbox-gl';
-import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
-
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || '';
-
 const BikeLane = () => {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<mapboxgl.Map | null>(null);
+  const mapContainer = useRef(null);
 
   useEffect(() => {
-    if (mapContainer.current && !mapInstance.current) {
-      mapInstance.current = new mapboxgl.Map({
-        container: mapContainer.current,
-        style: 'mapbox://styles/mapbox/streets-v12',
-        center: [144.9631, -37.8136],
-        zoom: 12
-      });
+    if (!mapContainer.current) return;
 
-      mapInstance.current.addControl(
-        new MapboxDirections({
-          accessToken: mapboxgl.accessToken
-        }),
-        'top-left'
-      );
-    }
+    mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || '';
 
-    // Cleanup the map when the component unmounts
-    return () => {
-      if (mapInstance.current) {
-        mapInstance.current.remove();
-        mapInstance.current = null;
-      }
-    };
-  }, []); 
+    const map = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [144.9631, -37.8136],
+      zoom: 12
+    });
+
+    const directions = new MapboxDirections({
+      accessToken: mapboxgl.accessToken,
+      unit: 'metric',
+      profile: 'mapbox/cycling',
+      alternatives: true,
+      proximity: [144.9631, -37.8136]
+    });
+
+    map.addControl(directions, 'top-left');
+
+    map.on('load', () => {
+      fetch('https://fit5120-onboarding.s3.ap-southeast-2.amazonaws.com/transformed_bike-lane.geojson')
+        .then(response => response.json())  
+        .then(data => {
+          map.addSource('bike-routes', {
+            type: 'geojson',
+            data: data  
+          });
+    
+          map.addLayer({
+            id: 'bike-routes-layer',
+            type: 'line',
+            source: 'bike-routes',
+            layout: {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            paint: {
+              'line-color': '#2e88a6',
+              'line-width': 2
+            }
+          });
+        })
+        .catch(error => console.error('Error loading or parsing the GeoJSON data: ', error));
+    });
+    
+
+    return () => map && map.remove();
+  }, []);
 
   return (
-    <div className={styles.container}>
-      <Head>  
-        <title>Bike Lane Finder</title>
-        <meta name="description" content="Find bike lanes in Melbourne." />
-        <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet" />
-      </Head>
-
-      <main className={styles.main}>
+    <div className={styles.layout}>
+      <div className={styles.container}>
         <h1 className={styles.title}>
           Bike Lane Finder
         </h1>
-        <p>This page will help you find bike lanes.</p>
-        <div className={styles.mapContainer} ref={mapContainer} style={{ height: 400 }}/>
-      </main>
+      </div>
+      <div ref={mapContainer} style={{ height: '100vh' }}>
+        {/* Map will render here */}
+      </div>
+
     </div>
   );
 };
