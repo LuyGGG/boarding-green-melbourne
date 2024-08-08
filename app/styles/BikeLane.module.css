@@ -11,7 +11,7 @@
     flex-direction: column;
     min-height: 100vh;
     background-color: #4a7c59;
-    padding: 50px;
+    padding: 30px;
   }
   .main {
     flex: 1;

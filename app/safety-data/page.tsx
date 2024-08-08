@@ -50,6 +50,7 @@ export default function SafetyData() {
       <h1 className={styles.title}>
         Accident Heat Map
       </h1>
+      <p className={styles.text}>The colors on this map represent the accident density in each section of Melbourne from 2012 to 2023.</p>
       <div className={styles.mapContainer}>
         <ChoroplethMap />
       </div>
