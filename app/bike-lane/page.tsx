@@ -26,7 +26,8 @@ const BikeLane = () => {
       unit: 'metric',
       profile: 'mapbox/cycling',
       alternatives: true,
-      proximity: [144.9631, -37.8136]
+      proximity: [144.9631, -37.8136],
+      controls: { profileSwitcher: false }
     });
 
     map.addControl(directions, 'top-left');
@@ -63,13 +64,16 @@ const BikeLane = () => {
 
   return (
     <div className={styles.layout}>
+      
       <div className={styles.container}>
         <h1 className={styles.title}>
-          Bike Lane Finder
+          Cycling Route Finder
         </h1>
+        <p className={styles.text}>The blue lines on this map represent the safest cycling lanes in Melbourne for the period from 2012 to 2023.</p>
+      </div >
+      <div className={styles.finderContainer}>
+      <div ref={mapContainer} style={{ height: '95vh' }}>
       </div>
-      <div ref={mapContainer} style={{ height: '100vh' }}>
-        {/* Map will render here */}
       </div>
 
     </div>

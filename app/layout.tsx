@@ -15,7 +15,7 @@ export default function RootLayout({
           </header>
           {children}       
           <footer className="footer">
-            <p>All interpretation rights are reserved by TP09.</p>
+            <p>All interpretation rights are reserved by Savvy EcoCyclers.</p>
           </footer>
       </body>
     </html>

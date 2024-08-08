@@ -3,7 +3,7 @@
     position: relative;
     height: 100%;
     background-color: #4a7c59;
-    margin-top: 70px;
+    margin-top: 40px;
   }
 
   .layout {
@@ -11,7 +11,7 @@
     flex-direction: column;
     min-height: 100vh;
     background-color: #4a7c59;
-    padding: 10px;
+    padding: 50px;
   }
   .main {
     flex: 1;
@@ -20,7 +20,7 @@
 
   .title {
     color: #f8f8f8;
-    font-size: 1em;
+    font-size: 1.5em;
     margin: 0;
   }
 
@@ -44,6 +44,13 @@
     text-decoration: none; 
     padding: 5px 10px;
     transition: color 0.3s;
+  }
+  .finderContainer {
+    height: 100vh; 
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(248, 248, 248, 0.6);
+    border-radius: 5px;
   }
   
   .header a:hover, .header a:focus {
@@ -71,6 +78,13 @@
     z-index: 10;
   }
   
+  .mapboxgl-ctrl-directions .mapboxgl-ctrl-directions-profile {
+    display: none !important;
+  }
+  
+  .mapboxgl-ctrl-directions .mapboxgl-ctrl-directions-profile[data-profile="mapbox/cycling"] {
+    display: block !important;
+  }
 
   
 
