@@ -7,8 +7,8 @@ const Nav = () => {
     <nav className={styles.menu}>
       <Link href="/" className={styles.menuItem}>HOME</Link>
       <Link href="/bike-lane" className={styles.menuItem}>ROUTE FINDER</Link>
-      <Link href="/safety-data" className={styles.menuItem}>ACCIDENT ZONES</Link>
       <Link href="/co2-calculator" className={styles.menuItem}>CO2 CALCULATOR</Link>
+      <Link href="/safety-data" className={styles.menuItem}>ACCIDENT ZONES</Link>
       <div className={styles.logo}>
         <Image 
           src="/logo.png" 
