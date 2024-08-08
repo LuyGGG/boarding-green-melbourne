@@ -70,7 +70,6 @@ export default function SafetyData() {
           interactiveLayerIds={[clusterLayer.id || '']}
           onClick={onClick}
           ref={mapRef }
-          style={{ height: 600 }}
         >
           <Source
             id="accidents"
