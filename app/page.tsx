@@ -38,7 +38,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className={styles.card}>
                     <img src="/co2-calculator.png" alt="CO2 Calculator" className={styles.cardImage}/>
-                    <p>Calculate your ride's environmental impact with our CO2 Calculator.</p>
+                    <p>Calculate your ride&apos;s environmental impact with our CO2 Calculator.</p>
                     <Link href="/co2-calculator" passHref>
                         <button className={styles.buttonAnimation}>Use CO2 Calculator</button>
                     </Link>
